@@ -1,0 +1,105 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <?= $this->headTitle("PIZZ'ON - Admin")->setSeparator(' - ')->setAutoEscape(false); ?>
+
+        <!-- Le styles -->
+        <?=
+                $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/pizza.png'))
+                ->prependStylesheet($this->basePath() . '/css/stylesadmin.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery.easy-pie-chart.css')
+        ?>
+
+        <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/js/jquery.easy-pie-chart.js')
+                ->prependFile($this->basePath() . '/js/scripts.js')
+                ->prependFile($this->basePath() . '/js/configadmin.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+        ?>
+
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="<?= $this->url('admin', array('controller' => 'admin', 'action' => 'index')); ?>">PIZZ'ON</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Usuario Teste <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="login.html">Sair</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="<?= $this->url('admin', array('controller' => 'admin', 'action' => 'index')); ?>">Configurações</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Site <i class="caret"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'index')); ?>">Inicio</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'about')); ?>">Sobre</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'menu')); ?>">Cardapio</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'gallery')); ?>">Galeria</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'reviews')); ?>">Criticas</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'contact')); ?>">Contatos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li name='principal'>
+                            <a href="<?= $this->url('admin', array('controller' => 'admin', 'action' => 'index')); ?>"><i class="icon-chevron-right"></i> Principal</a>
+                        </li>
+                        <li name='produto'>
+                            <a href="<?= $this->url('produto', array('controller' => 'adminproduto', 'action' => 'index')); ?>"><i class="icon-chevron-right"></i> Produto</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span9" id="content">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+            <hr>
+            <footer>
+                <p class="pull-right">&copy; Desenvolvido por caras legais do bem</p>
+            </footer>
+        </div>
+    </body>
+</html>

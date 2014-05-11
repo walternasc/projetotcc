@@ -1,0 +1,72 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <?= $this->headTitle("PIZZ'ON")->setSeparator(' - ')->setAutoEscape(false); ?>
+
+        <!-- Le styles -->
+        <?=
+                $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/pizza.png'))
+                ->prependStylesheet($this->basePath() . '/css/lojaStyle.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery.fancybox.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery.bxslider.css')
+        ?>
+
+        <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile($this->basePath() . '/js/jquery.fancybox.pack.js')
+                ->prependFile($this->basePath() . '/js/bxslider.min.js')
+                ->prependFile($this->basePath() . '/js/config.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+        ?>
+
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <nav>
+                    <ul id="nav">
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'index')); ?>" name="home">Inicio</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'about')); ?>" name="about">Sobre</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'menu')); ?>" name="menu">Cardapio</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'gallery')); ?>" name="gallery">Galeria</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'reviews')); ?>" name="reviews">Criticas</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'contact')); ?>" name="contact">Contato</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <?php echo $this->content; ?>
+            <footer>
+                <div class="border"></div>
+                <div class="footer-widget">
+                    <h4>um pouco</h4>
+                    <ul class="blog">
+                        <p>lorem ipsu<br>sdlfsjdlf</p>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>dois pouco</h4>
+                    <ul class="blog">
+                        <p>lorem ipsu<br>sdlfsjdlf</p>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Redes Sociais!</h4>
+                    <div id="social"> 
+                        <a href="#" class="s3d twitter" target="_blank"> Twitter <span class="icons twitter"></span> </a>
+                        <a href="#" class="s3d facebook" target="_blank"> Facebook <span class="icons facebook"></span> </a> 
+                    </div>
+                </div>
+                <div class="border2"></div>
+                <br />
+                <span class="copyright">
+                    <span class="left">
+                        &copy; Copyright 2014 - Todos os Direitos Reservados - <a href="#">Walter Nascimento Barroso</a>
+                    </span>
+                </span>
+            </footer>
+        </div>
+    </body>
+</html>
