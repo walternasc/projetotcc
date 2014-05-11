@@ -1,13 +1,24 @@
-<h3>Novo Produto</h3>
+<div class="row-fluid">
+    <div class="navbar-inner">
+        <ul class="breadcrumb">
+            <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
+            <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
+            <a href="<?= $this->url('produto', array('controller' => 'adminproduto', 'action' => 'index')); ?>" class="active">Produtos</a>
+        </ul>
+    </div>
+    <h3>Novo Produto</h3>
 
-<br />
+    <br />
 
-<?php
-$form = $this->form;
+    <?php
+    $form = $this->form;
 
-$form->setAttribute('action', $this->url('produto', array('controller' => 'adminproduto', 'action' => 'new')));
+    $form->setAttribute('action', $this->url('produto', array('controller' => 'adminproduto', 'action' => 'new')));
 
-$form->prepare();
-echo $this->form()->openTag($form);
-echo $this->formCollection($form);
-echo $this->form()->closeTag();
+    $form->prepare();
+    echo $this->form()->openTag($form);
+    echo $this->formCollection($form);
+    echo $this->form()->closeTag();
+    ?>
+
+</div>
