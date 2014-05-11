@@ -30,18 +30,41 @@
                                 <td><?= $entity->getId(); ?></td>
                                 <td><?= $entity->getDescricao(); ?></td>
                                 <td><?php echo $entity->getGrupo()->getDescricao(); ?></td>
-                                <td><?= $entity->getPreco(); ?></td>           
-                                <td><a href="#" class="btn btn-warning">E</a></td>
+                                <td>R$ <?= $entity->getPreco(); ?></td>           
+                                <td><a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a></td>
                                 <!--<td><a href="#" class="btn btn-danger">D</a></a></td>-->
                                 <td>
-                                    <a href="
-                                    <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'delete', 'id' => $entity->getId())); ?>
-                                       ">Deletar</a>
+                                    <button data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip" class="btn btn-danger">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>
                     <?php endforeach; ?>        
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title custom_align" id="Heading">Deletar</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> 
+                    Tem certeza que deseja excluir o item?
+                </div>
+            </div>
+            <div class="modal-footer ">
+                <a href="
+                <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'delete', 'id' => $entity->getId())); ?>
+                   " class="btn btn-info"><i class="fa fa-trash-o"></i> Sim</a>
+                <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
             </div>
         </div>
     </div>
