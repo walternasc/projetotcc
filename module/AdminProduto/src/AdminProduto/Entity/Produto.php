@@ -3,7 +3,7 @@
 namespace AdminProduto\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Zend\StdLib\Hydrator;
+use Admin\Entity\Configurator;
 
 /**
  * Product
@@ -47,8 +47,8 @@ class Produto {
      */
     private $grupo;
 
-    public function __construct(array $options = array()) {
-        (new Hydrator\ClassMethods)->hydrate($options, $this);
+    public function __construct($options = null) {
+        Configurator::configure($this, $options);
     }
 
     public function getId() {
@@ -84,7 +84,12 @@ class Produto {
     }
 
     public function toArray() {
-        return (new Hydrator\ClassMethods)->extract($this);
+        return array(
+            'id' => $this->id,
+            'descricao' => $this->descricao,
+            'preco' => $this->preco,
+            'grupo' => $this->grupo->getId()
+        );
     }
 
 }

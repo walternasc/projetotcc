@@ -3,7 +3,7 @@
 namespace Admin\Service;
 
 use Doctrine\ORM\EntityManager;
-use Zend\StdLib\Hydrator;
+use Admin\Entity\Configurator;
 
 abstract class AbstractService {
 
@@ -19,7 +19,6 @@ abstract class AbstractService {
 
     public function insert(array $data) {
         $entity = new $this->entity($data);
-
         $this->em->persist($entity);
         $this->em->flush();
         return $entity;
@@ -27,7 +26,7 @@ abstract class AbstractService {
 
     public function update(array $data) {
         $entity = $this->em->getReference($this->entity, $data['id']);
-        (new Hydrator\ClassMethods)->hydrate($data, $entity);
+        $entity = Configurator::configure($entity, $data);
 
         $this->em->persist($entity);
         $this->em->flush();

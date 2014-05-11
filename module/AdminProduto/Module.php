@@ -5,6 +5,7 @@
 namespace AdminProduto;
 
 use AdminProduto\Service\Produto as Produto;
+use AdminProduto\Form\Produto as ProdutoFrm;
 
 class Module {
 
@@ -33,6 +34,13 @@ class Module {
             'factories' => array(
                 'AdminProduto\Service\Produto' => function($service) {
             return new Produto($service->get('Doctrine\ORM\EntityManager'));
+        },
+                'AdminProduto\Form\Produto' => function($service) {
+            $em = $service->get('Doctrine\ORM\EntityManager');
+            $repository = $em->getRepository('AdminProduto\Entity\ProdutoGrupo');
+            $grupos = $repository->FetchPairs();
+
+            return new ProdutoFrm(null, $grupos);
         },
             ),
         );
