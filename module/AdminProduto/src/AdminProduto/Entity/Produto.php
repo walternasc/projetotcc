@@ -103,7 +103,7 @@ class Produto {
             'id' => $this->id,
             'descricao' => $this->descricao,
             'preco' => $this->preco,
-            'preco' => $this->comentario,
+            'comentario' => $this->comentario,
             'grupo' => $this->grupo->getId()
         );
     }
