@@ -47,6 +47,13 @@ class Produto {
      */
     private $grupo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", nullable=true)
+     */
+    private $comentario;
+
     public function __construct($options = null) {
         Configurator::configure($this, $options);
     }
@@ -67,6 +74,10 @@ class Produto {
         return $this->grupo;
     }
 
+    public function getComentario() {
+        return $this->comentario;
+    }
+
     public function setId($id) {
         $this->id = $id;
     }
@@ -83,11 +94,16 @@ class Produto {
         $this->grupo = $grupo;
     }
 
+    public function setComentario($comentario) {
+        $this->comentario = $comentario;
+    }
+
     public function toArray() {
         return array(
             'id' => $this->id,
             'descricao' => $this->descricao,
             'preco' => $this->preco,
+            'preco' => $this->comentario,
             'grupo' => $this->grupo->getId()
         );
     }

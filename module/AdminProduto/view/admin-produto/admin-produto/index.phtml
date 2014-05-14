@@ -34,9 +34,11 @@
                                 <td><?= $entity->getId(); ?></td>
                                 <td><?= $entity->getDescricao(); ?></td>
                                 <td><?= $entity->getGrupo()->getDescricao(); ?></td>
-                                <td>R$ <?= $entity->getPreco(); ?></td>           
-                                <td><a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a></td>
-                                <!--<td><a href="#" class="btn btn-danger">D</a></a></td>-->
+                                <td>R$ <?= number_format($entity->getPreco(), 2, ",", "."); ?></td>
+                                <td><a href="
+                                    <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'edit', 'id' => $entity->getId())); ?>
+                                       " class="btn btn-warning">
+                                        <i class="fa fa-pencil-square-o"></i></a></td>
                                 <td>
                                     <a href="
                                     <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'delete', 'id' => $entity->getId())); ?>

@@ -13,7 +13,7 @@
         <?php
         $form = $this->form;
 
-        $form->setAttribute('action', $this->url('produto', array('controller' => 'adminproduto', 'action' => 'new')));
+        $form->setAttribute('action', $this->url('produto', array('controller' => 'adminproduto', 'action' => 'edit')));
 
         $form->prepare();
         echo $this->form()->openTag($form);

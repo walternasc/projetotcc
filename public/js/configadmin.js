@@ -9,3 +9,12 @@ $(document).ready(function() {
         $('.container-fluid .row-fluid .span3 ul li[name=principal]').toggleClass("active");
     }
 });
+
+$(function() {
+    $('#money').maskMoney({
+        showSymbol: true,
+        symbol: "R$",
+        decimal: ",",
+        thousands: "."
+    });
+});
