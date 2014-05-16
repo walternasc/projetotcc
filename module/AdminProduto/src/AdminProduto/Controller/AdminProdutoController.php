@@ -6,6 +6,7 @@ namespace AdminProduto\Controller;
 
 use Admin\Controller\CrudController;
 use Zend\View\Model\ViewModel;
+use Zend\Http\PhpEnvironment\Request;
 
 class AdminProdutoController extends CrudController {
 
@@ -20,7 +21,14 @@ class AdminProdutoController extends CrudController {
     public function newAction() {
         $form = $this->getServiceLocator()->get($this->form);
         $request = $this->getRequest();
-
+        $File = $this->params()->fromFiles();
+        if ($File) {
+            $request = new Request();
+            $imgData = $_FILES["imagem"]["tmp_name"];
+            $imgName = $_FILES["imagem"]["name"];
+            $caminhoImg = $request->getServer('DOCUMENT_ROOT', false) . "/img/";
+            move_uploaded_file($imgData, "$caminhoImg$imgName");
+        }
         if ($request->isPost()) {
             $dados = $request->getPost();
             $dados->preco = str_replace(",", ".", str_replace(".", "", $dados->preco));
@@ -28,7 +36,6 @@ class AdminProdutoController extends CrudController {
             if ($form->isValid()) {
                 $service = $this->getServiceLocator()->get($this->service);
                 $service->insert($request->getPost()->toArray());
-
                 return $this->redirect()->toRoute($this->route, array('controller' => $this->controller));
             }
         }

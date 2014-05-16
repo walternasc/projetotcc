@@ -14,6 +14,7 @@ class Produto extends Form {
         $this->grupo = $grupo;
 
         $this->setAttribute('method', 'post');
+        $this->setAttribute('enctype', 'multipart/form-data');
 
         $id = new \Zend\Form\Element\Hidden('id');
         $this->add($id);
@@ -43,11 +44,17 @@ class Produto extends Form {
         $comentario = new \Zend\Form\Element\Textarea("comentario");
         $comentario->setLabel('Comentario:')
                 ->setAttribute('required', 'true')
+                ->setAttribute('id', 'comentario')
                 ->setAttribute('rows', 3)
                 ->setAttribute('cols', 10)
                 ->setAttribute('placeholder', "Comentarios sobre o Produto");
         $this->add($comentario);
-        
+
+        $imagem = new \Zend\Form\Element\File("imagem");
+        $imagem->setLabel('Imagem:')
+                ->setAttribute('id', 'imagem');
+        $this->add($imagem);
+
         $this->add(array(
             'name' => 'submit',
             'type' => 'Zend\Form\Element\Submit',
