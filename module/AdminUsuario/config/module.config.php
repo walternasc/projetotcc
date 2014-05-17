@@ -1,18 +1,18 @@
 <?php
 
-namespace Admin;
+namespace AdminProduto;
 
 //confira rotas
 return array(
     'router' => array(
         'routes' => array(
             //rota(s)
-            'admin' => array(
+            'usuario' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/admin',
+                    'route' => '/adminusuario[/:action][/:id]',
                     'defaults' => array(
-                        'controller' => 'admin',
+                        'controller' => 'adminusuario',
                         'action' => 'index',
                     ),
                 ),
@@ -22,14 +22,8 @@ return array(
     //configura os controllers
     'controllers' => array(
         'invokables' => array(
-            'admin' => 'Admin\Controller\AdminController',
+            'adminusuario' => 'AdminUsuario\Controller\AdminUsuarioController',
         ),
-    ),
-    //configuração para diferentes layouts
-    'module_layouts' => array(
-        'Admin' => 'layout/layout-admin.phtml',
-        'AdminProduto' => 'layout/layout-admin.phtml',
-        'AdminUsuario' => 'layout/layout-admin.phtml'
     ),
     //configurações extra da aplicação
     'view_manager' => array(
@@ -38,10 +32,6 @@ return array(
         'doctype' => 'HTML5',
         'not_found_template' => 'error/404',
         'exception_template' => 'error/index',
-        'template_map' => array(
-            'error/404' => __DIR__ . '/../view/error/404.phtml',
-            'error/index' => __DIR__ . '/../view/error/index.phtml'
-        ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),

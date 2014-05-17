@@ -39,8 +39,9 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Usuario Teste <i class="caret"></i>
-
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> 
+                                    <i class="icon-user"></i> Usuario Teste 
+                                    <i class="caret"></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -91,6 +92,9 @@
                         </li>
                         <li name='produto'>
                             <a href="<?= $this->url('produto', array('controller' => 'adminproduto', 'action' => 'index')); ?>"><i class="icon-chevron-right"></i> Produto</a>
+                        </li>
+                        <li name='usuario'>
+                            <a href="<?= $this->url('usuario', array('controller' => 'adminusuario', 'action' => 'index')); ?>"><i class="icon-chevron-right"></i> Usuario</a>
                         </li>
                     </ul>
                 </div>

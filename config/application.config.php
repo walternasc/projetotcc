@@ -6,8 +6,8 @@ return array(
         'DoctrineORMModule',
         'Admin',
         'AdminProduto',
-        'Loja',
-//        'Usuario'
+        'AdminUsuario',
+        'Loja'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
