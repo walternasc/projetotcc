@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminProduto;
+namespace AdminUsuario;
 
 //confira rotas
 return array(

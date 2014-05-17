@@ -21,9 +21,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Produto</th>
-                            <th>Grupo</th>
-                            <th>Valor</th>
+                            <th>Nome</th>
+                            <th>Email</th>
                             <th>Editar</th>
                             <th>Deletar</th>
                         </tr>
@@ -32,16 +31,15 @@
                         <tbody>
                             <tr>
                                 <td><?= $entity->getId(); ?></td>
-                                <td><?= $entity->getDescricao(); ?></td>
-                                <td><?= $entity->getGrupo()->getDescricao(); ?></td>
-                                <td>R$ <?= number_format($entity->getPreco(), 2, ",", "."); ?></td>
+                                <td><?= $entity->getNome(); ?></td>
+                                <td><?= $entity->getEmail(); ?></td>
                                 <td><a href="
-                                    <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'edit', 'id' => $entity->getId())); ?>
+                                    <?= $this->url("usuario", array('controller' => 'adminusuario', 'action' => 'edit', 'id' => $entity->getId())); ?>
                                        " class="btn btn-warning">
                                         <i class="fa fa-pencil-square-o"></i></a></td>
                                 <td>
                                     <a href="
-                                    <?= $this->url("produto", array('controller' => 'adminproduto', 'action' => 'delete', 'id' => $entity->getId())); ?>
+                                    <?= $this->url("usuario", array('controller' => 'adminusuario', 'action' => 'delete', 'id' => $entity->getId())); ?>
                                        " class="btn btn-danger">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
