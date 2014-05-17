@@ -1,41 +1,24 @@
 <?php
 
-namespace AdminProduto\Service;
+namespace AdminUsuario\Service;
 
 use Doctrine\ORM\EntityManager;
 use Admin\Service\AbstractService;
 use Admin\Entity\Configurator;
 
-class Produto extends AbstractService {
+class Usuario extends AbstractService {
 
     public function __construct(EntityManager $em) {
         parent::__construct($em);
-        $this->entity = "AdminProduto\Entity\Produto";
+        $this->entity = "AdminUsuario\Entity\Usuario";
     }
 
-    public function insert(array $data, $imagem) {
-        $entity = new $this->entity($data);
-
-        $grupo = $this->em->getReference("AdminProduto\Entity\ProdutoGrupo", $data['grupo']);
-        $entity->setGrupo($grupo);
-        $entity->setImagem($imagem);
-
-        $this->em->persist($entity);
-        $this->em->flush();
-
-        return $entity;
-    }
-
-    public function update(array $data, $imagem) {
+    public function update(array $data) {
         $entity = $this->em->getReference($this->entity, $data['id']);
-        $entity = Configurator::configure($entity, $data);
-
-        $grupo = $this->em->getReference("AdminProduto\Entity\ProdutoGrupo", $data['grupo']);
-        $entity->setGrupo($grupo);
-        if ($imagem) {
-            $entity->setImagem($imagem);
+        if (empty($data['senha'])) {
+            unset($data['senha']);
         }
-
+        $entity = Configurator::configure($entity, $data);
         $this->em->persist($entity);
         $this->em->flush();
 

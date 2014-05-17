@@ -4,6 +4,8 @@
 
 namespace AdminUsuario;
 
+use AdminUsuario\Service\Usuario as Usuario;
+
 class Module {
 
     //Chama o module.config.php(criar rotas)
@@ -21,6 +23,17 @@ class Module {
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
+            ),
+        );
+    }
+
+    //Configura Serviços
+    public function getServiceConfig() {
+        return array(
+            'factories' => array(
+                'AdminUsuario\Service\Usuario' => function($service) {
+            return new Usuario($service->get('Doctrine\ORM\EntityManager'));
+        }
             ),
         );
     }

@@ -1,17 +1,13 @@
 <?php
 
-namespace AdminProduto\Form;
+namespace AdminUsuario\Form;
 
-use Zend\Form\Form,
-    Zend\Form\Element\Select;
+use Zend\Form\Form;
 
-class Produto extends Form {
+class Usuario extends Form {
 
-    protected $grupo;
-
-    public function __construct($name = null, array $grupo = null) {
-        parent::__construct('produto');
-        $this->grupo = $grupo;
+    public function __construct($name = null) {
+        parent::__construct('usuario');
 
         $this->setAttribute('method', 'post');
         $this->setAttribute('enctype', 'multipart/form-data');
@@ -19,41 +15,25 @@ class Produto extends Form {
         $id = new \Zend\Form\Element\Hidden('id');
         $this->add($id);
 
-        $descricao = new \Zend\Form\Element\Text("descricao");
-        $descricao->setLabel("Descrição: ")
-                ->setAttribute('id', 'descricao')
+        $nome = new \Zend\Form\Element\Text("nome");
+        $nome->setLabel("Nome: ")
+                ->setAttribute('id', 'nome')
                 ->setAttribute('required', 'true')
-                ->setAttribute('placeholder', "Entre com a descrição do produto");
-        $this->add($descricao);
+                ->setAttribute('placeholder', "Entre com o nome do usuario");
+        $this->add($nome);
 
-        $preco = new \Zend\Form\Element\Text("preco");
-        $preco->setLabel("Preço(R$): ")
-                ->setAttribute('placeholder', "Entre com o preço do produto")
+        $email = new \Zend\Form\Element\Text("email");
+        $email->setLabel("E-Mail:")
+                ->setAttribute('placeholder', "Entre com seu email")
                 ->setAttribute('required', 'true')
-                ->setAttribute('id', 'money')
-                ->setAttribute('maxLength', 11);
-        $this->add($preco);
+                ->setAttribute('id', 'email');
+        $this->add($email);
 
-        $grupo = new Select();
-        $grupo->setLabel("Grupo: ")
-                ->setName("grupo")
-                ->setAttribute('id', 'grupo')
-                ->setOptions(array('value_options' => $this->grupo));
-        $this->add($grupo);
-
-        $comentario = new \Zend\Form\Element\Textarea("comentario");
-        $comentario->setLabel('Comentario:')
-                ->setAttribute('required', 'true')
-                ->setAttribute('id', 'comentario')
-                ->setAttribute('rows', 3)
-                ->setAttribute('cols', 10)
-                ->setAttribute('placeholder', "Comentarios sobre o Produto");
-        $this->add($comentario);
-
-        $imagem = new \Zend\Form\Element\File("imagem");
-        $imagem->setLabel('Imagem:')
-                ->setAttribute('id', 'imagem');
-        $this->add($imagem);
+        $senha = new \Zend\Form\Element\Password("senha");
+        $senha->setLabel("Senha:")
+                ->setAttribute('placeholder', "Entre com a senha")
+                ->setAttribute('id', 'senha');
+        $this->add($senha);
 
         $this->add(array(
             'name' => 'submit',
