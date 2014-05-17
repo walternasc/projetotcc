@@ -9,6 +9,8 @@ use Zend\View\Model\ViewModel;
 
 class LojaController extends AbstractActionController {
 
+    protected $em;
+
     public function indexAction() {
         return new ViewModel();
     }
@@ -16,9 +18,13 @@ class LojaController extends AbstractActionController {
     public function aboutAction() {
         return new ViewModel();
     }
-    
+
     public function menuAction() {
-        return new ViewModel();
+        $list = $this->getEm()
+                ->getRepository("AdminProduto\Entity\Produto")
+                ->findAll();
+
+        return new ViewModel(array('data' => $list));
     }
 
     public function galleryAction() {
@@ -31,6 +37,17 @@ class LojaController extends AbstractActionController {
 
     public function contactAction() {
         return new ViewModel();
+    }
+
+    /**
+     * @return EntityManager
+     */
+    protected function getEm() {
+        if (null === $this->em) {
+            $this->em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        }
+
+        return $this->em;
     }
 
 }

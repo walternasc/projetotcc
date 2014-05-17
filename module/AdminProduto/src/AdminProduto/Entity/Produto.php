@@ -54,6 +54,13 @@ class Produto {
      */
     private $comentario;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", nullable=true)
+     */
+    private $imagem;
+
     public function __construct($options = null) {
         Configurator::configure($this, $options);
     }
@@ -98,12 +105,21 @@ class Produto {
         $this->comentario = $comentario;
     }
 
+    public function getImagem() {
+        return $this->imagem;
+    }
+
+    public function setImagem($imagem) {
+        $this->imagem = $imagem;
+    }
+
     public function toArray() {
         return array(
             'id' => $this->id,
             'descricao' => $this->descricao,
             'preco' => $this->preco,
             'comentario' => $this->comentario,
+            'imagem' => $this->imagem,
             'grupo' => $this->grupo->getId()
         );
     }
