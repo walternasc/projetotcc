@@ -30,7 +30,7 @@ class AdminProdutoController extends CrudController {
         if ($request->isPost()) {
             $dados = $request->getPost();
             $dados->preco = str_replace(",", ".", str_replace(".", "", $dados->preco));
-            $imagem = substr(".." . "$caminhoImg", 19) . "$imgName";
+            $imagem = ".." . substr("$caminhoImg", 26) . "$imgName";
             $form->setData($dados);
             if ($form->isValid()) {
                 $service = $this->getServiceLocator()->get($this->service);
@@ -61,7 +61,7 @@ class AdminProdutoController extends CrudController {
             $dados = $request->getPost();
             $dados->preco = str_replace(",", ".", str_replace(".", "", $dados->preco));
             if ($imgName) {
-                $imagem = substr(".." . "$caminhoImg", 19) . "$imgName";
+                $imagem = ".." . substr("$caminhoImg", 26) . "$imgName";
             } else {
                 $imagem = null;
             }
