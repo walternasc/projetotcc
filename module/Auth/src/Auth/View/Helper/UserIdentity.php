@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\View\Helper;
+namespace Auth\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
 use Zend\Authentication\AuthenticationService,

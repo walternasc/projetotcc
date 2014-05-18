@@ -1,19 +1,29 @@
 <?php
 
-namespace Admin;
+namespace Auth;
 
 //confira rotas
 return array(
     'router' => array(
         'routes' => array(
             //rota(s)
-            'admin' => array(
-                'type' => 'Segment',
+            'auth' => array(
+                'type' => 'Literal',
                 'options' => array(
-                    'route' => '/admin',
+                    'route' => '/auth',
                     'defaults' => array(
-                        'controller' => 'admin',
+                        'controller' => 'auth',
                         'action' => 'index',
+                    ),
+                ),
+            ),
+            'logout' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/auth/logout',
+                    'defaults' => array(
+                        'controller' => 'auth',
+                        'action' => 'logout',
                     ),
                 ),
             ),
@@ -22,12 +32,11 @@ return array(
     //configura os controllers
     'controllers' => array(
         'invokables' => array(
-            'admin' => 'Admin\Controller\AdminController',
+            'auth' => 'Auth\Controller\AuthController',
         ),
     ),
     //configuração para diferentes layouts
     'module_layouts' => array(
-        'Auth' => 'layout/layout-admin.phtml',
         'Admin' => 'layout/layout-admin.phtml',
         'AdminProduto' => 'layout/layout-admin.phtml',
         'AdminUsuario' => 'layout/layout-admin.phtml'

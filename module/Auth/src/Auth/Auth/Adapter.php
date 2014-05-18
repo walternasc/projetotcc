@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Auth;
+namespace Auth\Auth;
 
 use Zend\Authentication\Adapter\AdapterInterface,
     Zend\Authentication\Result;

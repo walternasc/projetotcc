@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Controller;
+namespace Auth\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController,
     Zend\View\Model\ViewModel;
@@ -26,7 +26,7 @@ class AuthController extends AbstractActionController {
                 $sessionStorage = new SessionStorage("Admin");
                 $auth->setStorage($sessionStorage);
 
-                $authAdapter = $this->getServiceLocator()->get('Admin\Auth\Adapter');
+                $authAdapter = $this->getServiceLocator()->get('Auth\Auth\Adapter');
                 $authAdapter->setUsername($data['email'])
                         ->setPassword($data['senha']);
 
