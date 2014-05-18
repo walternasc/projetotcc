@@ -25,19 +25,41 @@
 
     </head>
     <body>
+        <span class="left">
+            <i>&nbsp;</i>
+            <i>&nbsp;</i>
+            <i>&nbsp;</i>
+            <i>&nbsp;</i>
+            <?php if ($this->UserIdentity('Admin')): ?>
+                <?php if ($this->UserIdentity('Admin')->getAdmin()): ?>
+                    <a href="<?= $this->url('admin', array('controller' => 'admin', 'action' => 'index')); ?>" name="home" class="button admin">Administração</a>
+                <?php endif; ?>
+            <?php endif; ?>
+        </span>
+        <span class="right">
+            <?php if ($this->UserIdentity('Admin')): ?>
+                <i class="fa fa-user"></i> 
+                <?= $this->UserIdentity('Admin')->getNome(); ?>
+                <i class="fa fa-caret-down"></i>
+                <i>&nbsp;</i>
+                <i>&nbsp;</i>
+                <i>&nbsp;</i>
+                <i>&nbsp;</i>
+            <?php else: ?>
+                <form method="POST" action="/auth">
+                    <label>E-Mail: <input type="text" name="email"></label>
+                    <label>Senha: <input type="password" name="senha"></label>
+                    <button class="button" style="width: 40px; height: 40px;">OK</button>
+                    <i>&nbsp;</i>
+                    <i>&nbsp;</i>
+                    <i>&nbsp;</i>
+                    <i>&nbsp;</i>
+                </form>
+            <?php endif; ?>
+        </span>
+        <div class="border2"></div>
         <div id="container">
             <header>
-                <?php if ($this->UserIdentity('Admin')): ?>
-                    <i class="icon-user"></i> 
-                    <?= $this->UserIdentity('Admin')->getNome(); ?>
-                    <i class="caret"></i>
-                <?php else: ?>
-                    <form method="POST" action="/auth">
-                        email<input name="email">
-                        senha<input name="senha">
-                        <button>OK</button>
-                    </form>
-                <?php endif; ?>
                 <nav>
                     <ul id="nav">
                         <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'index')); ?>" name="home">Inicio</a></li>

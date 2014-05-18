@@ -45,6 +45,13 @@ class Usuario {
      */
     private $senha;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="admin", type="boolean", nullable=false)
+     */
+    private $admin = false;
+
     public function __construct($options = null) {
         Configurator::configure($this, $options);
     }
@@ -81,11 +88,20 @@ class Usuario {
         $this->senha = $senha;
     }
 
+    public function getAdmin() {
+        return $this->admin;
+    }
+
+    public function setAdmin($admin) {
+        $this->admin = $admin;
+    }
+
     public function toArray() {
         return array(
             'id' => $this->id,
             'nome' => $this->nome,
             'email' => $this->email,
+            'admin' => $this->admin,
             'senha' => $this->senha
         );
     }
