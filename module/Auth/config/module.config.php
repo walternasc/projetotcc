@@ -8,22 +8,12 @@ return array(
         'routes' => array(
             //rota(s)
             'auth' => array(
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'options' => array(
-                    'route' => '/auth',
+                    'route' => '/auth[/:action]',
                     'defaults' => array(
                         'controller' => 'auth',
                         'action' => 'index',
-                    ),
-                ),
-            ),
-            'logout' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/auth/logout',
-                    'defaults' => array(
-                        'controller' => 'auth',
-                        'action' => 'logout',
                     ),
                 ),
             ),
