@@ -8,8 +8,9 @@ use Admin\Entity\Configurator;
 /**
  * Product
  *
- * @ORM\Table(name="users")
  * @ORM\Entity
+ * @ORM\Table(name="users")
+ * @ORM\Entity(repositoryClass="AdminUsuario\Entity\UsuarioRepository")
  */
 class Usuario {
 

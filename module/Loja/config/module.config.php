@@ -11,7 +11,7 @@ return array(
             'loja' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/[:controller[/:action]]',
+                    'route' => '/loja/[:controller[/:action]]',
                     'defaults' => array(
                         'controller' => 'loja',
                         'action' => 'index',

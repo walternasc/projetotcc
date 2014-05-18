@@ -27,6 +27,11 @@
     <body>
         <div id="container">
             <header>
+                <form method="POST">
+                    email<input>
+                    senha<input>
+                    <button>OK</button>
+                </form>
                 <nav>
                     <ul id="nav">
                         <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'index')); ?>" name="home">Inicio</a></li>

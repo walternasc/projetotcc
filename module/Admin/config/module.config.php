@@ -17,12 +17,33 @@ return array(
                     ),
                 ),
             ),
+            'auth' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/auth',
+                    'defaults' => array(
+                        'controller' => 'auth',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
+            'logout' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/auth/logout',
+                    'defaults' => array(
+                        'controller' => 'auth',
+                        'action' => 'logout',
+                    ),
+                ),
+            ),
         ),
     ),
     //configura os controllers
     'controllers' => array(
         'invokables' => array(
             'admin' => 'Admin\Controller\AdminController',
+            'auth' => 'Admin\Controller\AuthController',
         ),
     ),
     //configuração para diferentes layouts

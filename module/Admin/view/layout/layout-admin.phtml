@@ -40,12 +40,15 @@
                         <ul class="nav pull-right">
                             <li class="dropdown">
                                 <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> 
-                                    <i class="icon-user"></i> Usuario Teste 
-                                    <i class="caret"></i>
+                                    <?php if ($this->UserIdentity('Admin')): ?>
+                                        <i class="icon-user"></i> 
+                                        <?= $this->UserIdentity('Admin')->getNome(); ?>
+                                        <i class="caret"></i>
+                                    <?php endif; ?>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="login.html"><i class="fa fa-power-off"></i> Sair</a>
+                                        <a tabindex="-1" href="<?= $this->url('logout', array('controller' => 'auth', 'action' => 'logout')); ?>"><i class="fa fa-power-off"></i> Sair</a>
                                     </li>
                                 </ul>
                             </li>
@@ -104,7 +107,8 @@
             </div>
             <hr>
             <footer>
-                <p class="pull-right">&copy; Desenvolvido por caras legais do bem</p>
+                <p class="pull-right">Desenvolvido por caras legais do bem.<br>
+                    &copy; 2014 - <?php echo date('Y') ?> Pizz'on, inc. Todos os direitos reservados.</p>
             </footer>
         </div>
     </body>

@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var pathname = window.location.pathname.substring(6),
+    var pathname = window.location.pathname.substring(11),
             lol = $('#nav li a[name=' + pathname + ']');
     if (lol[0]) {
         $(lol).toggleClass("current");
