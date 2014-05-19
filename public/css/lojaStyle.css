@@ -708,3 +708,9 @@ footer {
     color: #ff0033;
     text-transform: uppercase;
 }
+
+.bar{
+    background-color: #F1ECDC;
+    width: 100%;   
+    position:fixed;
+}
