@@ -16,13 +16,25 @@ class LojaController extends AbstractActionController {
     }
 
     public function aboutAction() {
-        return new ViewModel();
+        $qb = $this->getEm()->createQueryBuilder('e');
+
+        $qb->select('e')
+                ->from('AdminProduto\Entity\Produto', 'e')
+                ->where('e.grupo = 2');
+
+        $list = $qb->getQuery()->getResult();
+
+        return new ViewModel(array('data' => $list));
     }
 
     public function menuAction() {
-        $list = $this->getEm()
-                ->getRepository("AdminProduto\Entity\Produto")
-                ->findAll();
+        $qb = $this->getEm()->createQueryBuilder('e');
+
+        $qb->select('e')
+                ->from('AdminProduto\Entity\Produto', 'e')
+                ->where('e.grupo = 1');
+
+        $list = $qb->getQuery()->getResult();
 
         return new ViewModel(array('data' => $list));
     }
@@ -32,7 +44,14 @@ class LojaController extends AbstractActionController {
     }
 
     public function reviewsAction() {
-        return new ViewModel();
+        $qb = $this->getEm()->createQueryBuilder('e');
+
+        $qb->select('e')
+                ->from('AdminProduto\Entity\Produto', 'e')
+                ->where('e.grupo = 3');
+
+        $list = $qb->getQuery()->getResult();
+        return new ViewModel(array('data' => $list));
     }
 
     public function contactAction() {

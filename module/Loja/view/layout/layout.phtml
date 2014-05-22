@@ -25,7 +25,6 @@
 
     </head>
     <body>
-    <div class="bar">
         <span class="left">
             <i>&nbsp;</i>
             <i>&nbsp;</i>
@@ -59,18 +58,15 @@
             <?php endif; ?>
         </span>
         <div class="border2"></div>
-        </div>
-        <br />
-        <br />
         <div id="container">
             <header>
                 <nav>
                     <ul id="nav">
                         <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'index')); ?>" name="home">Inicio</a></li>
-                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'about')); ?>" name="about">Sobre</a></li>
-                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'menu')); ?>" name="menu">Cardapio</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'menu')); ?>" name="menu">Pizza</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'about')); ?>" name="about">Sanduiche</a></li>
+                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'reviews')); ?>" name="reviews">Bebidas</a></li>
                         <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'gallery')); ?>" name="gallery">Galeria</a></li>
-                        <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'reviews')); ?>" name="reviews">Criticas</a></li>
                         <li><a href="<?= $this->url('loja', array('controller' => 'loja', 'action' => 'contact')); ?>" name="contact">Contato</a></li>
                     </ul>
                 </nav>
@@ -78,19 +74,7 @@
             <?php echo $this->content; ?>
             <footer>
                 <div class="border"></div>
-                <div class="footer-widget">
-                    <h4>um pouco</h4>
-                    <ul class="blog">
-                        <p>lorem ipsu<br>sdlfsjdlf</p>
-                    </ul>
-                </div>
-                <div class="footer-widget">
-                    <h4>dois pouco</h4>
-                    <ul class="blog">
-                        <p>lorem ipsu<br>sdlfsjdlf</p>
-                    </ul>
-                </div>
-                <div class="footer-widget">
+                <div class="footer-widget" style="margin-left: 33%">
                     <h4>Redes Sociais!</h4>
                     <div id="social"> 
                         <a href="#" class="s3d twitter" target="_blank"> Twitter <span class="icons twitter"></span> </a>
@@ -101,7 +85,8 @@
                 <br />
                 <span class="copyright">
                     <span class="left">
-                        &copy; Copyright 2014 - Todos os Direitos Reservados - <a href="#">Walter Nascimento Barroso</a>
+                        <p class="pull-right">Desenvolvido por caras legais do bem de verdade.<br>
+                            &copy; 2014 - <?php echo date('Y') ?> Pizz'on, inc. Todos os direitos reservados.</p>
                     </span>
                 </span>
             </footer>
